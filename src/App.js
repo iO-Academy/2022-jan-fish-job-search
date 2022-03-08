@@ -1,11 +1,17 @@
-
 import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
+const ApiFetch = async (url) => {
+        let data = await fetch(url)
+        let jsonData = await data.json()
+        console.log(jsonData)
+}
 
-    </div>
+function App() {
+    ApiFetch('http://localhost:8080/jobs/recent')
+    return (
+        <div className="App">
+
+        </div>
   );
 }
 
