@@ -1,14 +1,16 @@
+import './TableHeader.css'
+
 const TableHeader = () => {
     return (
         <div>
             <h1>Most recent jobs</h1>
-            <table className="table table-dark table-striped">
+            <table className="table table-dark table-striped container">
                 <thead className="thead-dark">
                 <tr>
-                    <th scope="col">Job title / Company</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Salary</th>
-                    <th scope="col">Skills</th>
+                    <th className="col-5" scope="col">Job title / Company</th>
+                    <th className="col-1" scope="col">Type</th>
+                    <th className="col-2" scope="col">Salary</th>
+                    <th className="col-4" scope="col">Skills</th>
                 </tr>
                 </thead>
                 <tbody>
