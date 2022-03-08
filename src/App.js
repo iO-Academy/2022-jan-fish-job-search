@@ -1,38 +1,20 @@
 import './App.css';
 import './App.scss';
-import Main from "./Main";
-import Footer from "./Footer";
+import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
 
 function App() {
-  const job = {
-    "id": "300",
-    "job_title": "Junior software engineer",
-    "company": "Demivee",
-    "logo": "https://dummyimage.com/250/000000/89e632&text=Logo",
-    "salary": "127228",
-    "type": 'full-time',
-    "skills": [
-      {
-        "id": "5",
-        "skill": "Ruby"
-      },
-      {
-        "id": "8",
-        "skill": "Python"
-      },
-      {
-        "id": "18",
-        "skill": "XML"
-      }
-    ]
-  }
+    const apiFetch = async (url) => {
+        let data = await fetch(url)
+        let jsonData = await data.json()
+        return jsonData
+    }
 
-  return (
-    <div>
-      <Main />
-      <Footer />
-    </div>
-  );
+    return (
+        <div>
+            <Main apiFetch={apiFetch}/>
+            <Footer/>
+        </div>
+    );
 }
-
-export default App;
+export default App
