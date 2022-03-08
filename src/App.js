@@ -1,4 +1,8 @@
+import './App.css';
 import './App.scss';
+import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
+
 
 const ApiFetch = async (url) => {
         let data = await fetch(url)
@@ -11,7 +15,10 @@ function App() {
     return (
         <div className="App">
 
-        </div>
+      <Main />
+      <Footer />
+
+    </div>
   );
 }
 
