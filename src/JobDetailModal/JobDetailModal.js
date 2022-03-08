@@ -1,14 +1,16 @@
 import './JobDetailsModal.scss'
+import ModalNav from "../ModalNav/ModalNav";
 
 const JobDetailModal = (props) => {
 
 
     return (
         <div className={'job-detail-modal ' + props.modalDisplay}>
-            {/*//Navbar*/}
-
-            <p>{props.jobTitle} - {props.company}</p>
-            <button onClick={props.closeHandleClick}>Close</button>
+            <ModalNav
+                jobTitle={props.jobTitle}
+                company={props.company}
+                closeHandleClick={props.closeHandleClick}
+            />
         </div>
 
     )
