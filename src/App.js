@@ -2,6 +2,7 @@ import './App.css';
 import './App.scss';
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
+import KeyFacts from "./KeyFacts/KeyFacts";
 
 
 const ApiFetch = async (url) => {
@@ -13,9 +14,10 @@ const ApiFetch = async (url) => {
 function App() {
     ApiFetch('http://localhost:8080/jobs/recent')
     return (
-        <div className="App">
+    <div className="App">
 
       <Main />
+      <KeyFacts />
       <Footer />
 
     </div>
