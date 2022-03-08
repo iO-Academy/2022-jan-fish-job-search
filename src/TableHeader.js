@@ -1,5 +1,3 @@
-import './TableHeader.css'
-
 const TableHeader = () => {
     return (
         <div>
