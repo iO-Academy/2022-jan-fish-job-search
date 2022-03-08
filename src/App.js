@@ -1,5 +1,6 @@
 import './App.scss';
 
+
 const ApiFetch = async (url) => {
         let data = await fetch(url)
         let jsonData = await data.json()
