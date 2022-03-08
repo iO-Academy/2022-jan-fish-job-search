@@ -1,4 +1,4 @@
-import TableHeader from "./TableHeader";
+import TableHeader from "../TableHeader/TableHeader";
 
 const JobsContainer = () => {
     return (

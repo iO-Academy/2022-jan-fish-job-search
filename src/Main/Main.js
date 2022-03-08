@@ -1,4 +1,4 @@
-import JobsContainer from "./JobsContainer";
+import JobsContainer from "../JobsContainer/JobsContainer";
 
 const Main = () => {
     return (
