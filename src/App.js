@@ -1,6 +1,8 @@
 import './App.css';
-import Main from "./Main/Main";
-import Footer from "./Footer/Footer";
+import './App.scss';
+import Main from "./Main";
+import Footer from "./Footer";
+
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
 
       <Main />
       <Footer />
+    
     </div>
   );
 }
