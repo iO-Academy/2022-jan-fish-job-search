@@ -1,4 +1,9 @@
-const TableHeader = () => {
+const TableHeader = (props) => {
+
+    const handleClick = () => {
+        props.openJobDetailModal()
+    }
+
     return (
         <div>
             <h1>Most recent jobs</h1>
@@ -12,7 +17,16 @@ const TableHeader = () => {
                 </tr>
                 </thead>
                 <tbody>
-
+                    <tr onClick={handleClick} data-id={300}>
+                        <td>Junior Dev</td>
+                        <td>Google</td>
+                        <td>Full Time</td>
+                    </tr>
+                    <tr data-id={40}>
+                        <td>Junior Dev</td>
+                        <td>Mayden</td>
+                        <td>Full Time</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
