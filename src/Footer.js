@@ -3,11 +3,9 @@ const Footer = () => {
         <div>
             <footer id="footer" className="footer-1">
                 <div className="footer-copyright">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12 text-left">
+                    <div className="container-fluid">
+                        <div className="row text-left">
                                 <p>© Copyright iO Academy 2022</p>
-                            </div>
                         </div>
                     </div>
                 </div>

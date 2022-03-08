@@ -1,10 +1,8 @@
-import Footer from "./Footer";
-
 const TableHeader = () => {
     return (
         <div>
             <h1>Most recent jobs</h1>
-            <table className="table">
+            <table className="table table-dark table-striped">
                 <thead className="thead-dark">
                 <tr>
                     <th scope="col">Job title / Company</th>
@@ -13,6 +11,9 @@ const TableHeader = () => {
                     <th scope="col">Skills</th>
                 </tr>
                 </thead>
+                <tbody>
+
+                </tbody>
             </table>
         </div>
     )

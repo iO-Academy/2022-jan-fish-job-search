@@ -1,9 +1,9 @@
-import Footer from "./Footer";
+import JobsContainer from "./JobsContainer";
 
 const Main = () => {
     return (
         <div>
-
+            <JobsContainer />
         </div>
     )
 }
