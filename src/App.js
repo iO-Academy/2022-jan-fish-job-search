@@ -10,7 +10,8 @@ function App() {
     ApiFetch('http://localhost:8080/jobs/recent')
     return (
         <div className="App">
-
+            <>
+            </>
         </div>
   );
 }
