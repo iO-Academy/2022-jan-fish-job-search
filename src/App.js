@@ -1,6 +1,7 @@
-
+import './App.css';
 import './App.scss';
-import JobCard from "./JobCard/JobCard";
+import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
   const job = {
@@ -26,9 +27,10 @@ function App() {
     ]
   }
 
-
   return (
     <div>
+      <Main />
+      <Footer />
     </div>
   );
 }
