@@ -4,7 +4,7 @@ const KeyFacts = (props) => {
     return (
         <div>
             <ModalHeader />
-            <h2>Key facts:</h2>
+            <h4>Key facts:</h4>
             <table className="table">
                 <thead>
                 <tr>
