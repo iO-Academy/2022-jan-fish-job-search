@@ -1,9 +1,14 @@
+import {useEffect} from "react";
 
 const TableHeader = (props) => {
 
     const handleClick = () => {
-        props.openJobDetailModal(props.jobId)
+        props.openJobDetailModal()
     }
+
+    useEffect( () => {
+        props.fetchModalData(props.jobRowId)
+    }, [props.modalJobId])
 
     return (
         <div>
@@ -18,12 +23,12 @@ const TableHeader = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                    <tr onClick={handleClick} data-id={300}>
-                        <td className={'job-title'}>J Dev</td>
+                    <tr onClick={handleClick}>
+                        <td>Junior Dev</td>
                         <td>Google</td>
                         <td>Full Time</td>
                     </tr>
-                    <tr data-id={40}>
+                    <tr>
                         <td>Junior Dev</td>
                         <td>Mayden</td>
                         <td>Full Time</td>

@@ -1,11 +1,12 @@
 import './ModalNav.scss'
+import CloseIcon from "../CloseIcon/CloseIcon";
 
 const ModalNav = (props) => {
+
     return (
-        <div
-        className={'modal-nav'}>
-        <p>{props.modalData.job_title} - {props.modalData.company}</p>
-            <img src={'close-icon.svg'} alt={'close icon'} onClick={props.closeHandleClick}/>
+        <div className={'modal-nav'}>
+            <p>{props.modalData.job_title} - {props.modalData.company}</p>
+            <button onClick={props.closeHandleClick}>Close</button>
         </div>
     )
 }
