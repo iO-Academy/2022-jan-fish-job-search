@@ -1,30 +1,46 @@
 import TableHeader from "../TableHeader/TableHeader";
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
-import {useState} from "react"
-const JobsContainer = (props) => {
-   
-    const [jobTitle, setJobTitle] = useState('')
-    const [company, setCompany] = useState('')
-    const [modalDisplay, setModalDisplay] = useState('hidden')
+import {useEffect, useState} from "react"
 
-    const openJobDetailModal = () => {
+const JobsContainer = (props) => {
+
+    const [modalDisplay, setModalDisplay] = useState('hidden')
+    const [modalJobId, setModalJobId] = useState('')
+
+    const openJobDetailModal = (jobRowId) => {
         setModalDisplay('')
+        setModalJobId(jobRowId)
     }
 
     const closeHandleClick = () => {
         setModalDisplay('hidden')
     }
 
+    const[modalData, setModalData] = useState(null)
+    const fetchModalData = async (jobIdUrl) => {
+        let response = await props.apiFetch('http://localhost:8080/jobs/' + jobIdUrl)
+        setModalData(response)
+    }
+
+    let jobRowId = 99
+
     return (
         <div className={'jobs-container'}>
             
-            <TableHeader openJobDetailModal={openJobDetailModal} />
+            <TableHeader
+                openJobDetailModal={openJobDetailModal}
+                modalJobId={modalJobId}
+                fetchModalData={fetchModalData}
+                jobRowId={jobRowId}
+            />
+
             <JobDetailModal
-                jobTitle={'Junior Dev'}
-                company={'Google'}
                 modalDisplay={modalDisplay}
                 closeHandleClick={closeHandleClick}
                 apiFetch={props.apiFetch}
+                modalJobId={modalJobId}
+                fetchModalData={fetchModalData}
+                modalData={modalData}
             />
         </div>
     )
