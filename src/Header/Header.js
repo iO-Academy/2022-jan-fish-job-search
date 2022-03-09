@@ -1,12 +1,12 @@
 import SearchContainer from "../SearchContainer/SearchContainer";
 
-const Header = () => {
+const Header = (props) => {
 
     return(
         <header>
             <div className={'container p-5'}>
                 <h1 className={'text-white'}>Find your perfect job</h1>
-                <SearchContainer />
+                <SearchContainer ApiFetch={props.ApiFetch}/>
             </div>
         </header>
     )

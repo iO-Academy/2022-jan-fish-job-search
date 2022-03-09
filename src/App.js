@@ -8,14 +8,14 @@ import Footer from "./Footer/Footer";
 const ApiFetch = async (url) => {
         let data = await fetch(url)
         let jsonData = await data.json()
-        console.log(jsonData)
+        return jsonData
 }
 
 function App() {
     ApiFetch('http://localhost:8080/jobs/recent')
     return (
         <div className="App">
-            <Header />
+            <Header ApiFetch={ApiFetch}/>
             <Main />
             <Footer />
 
