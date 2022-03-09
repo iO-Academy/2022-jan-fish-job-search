@@ -1,10 +1,8 @@
 import JobsContainer from "../JobsContainer/JobsContainer";
 
-const Main = () => {
+const Main = (props) => {
     return (
-        <div>
-            <JobsContainer />
-        </div>
+        <JobsContainer apiFetch={props.apiFetch}/>
     )
 }
 

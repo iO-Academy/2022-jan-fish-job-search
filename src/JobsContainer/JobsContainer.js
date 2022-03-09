@@ -1,10 +1,8 @@
-import TableHeader from "../TableHeader/TableHeader";
+import JobTable from "../JobTable/JobTable";
 
-const JobsContainer = () => {
+const JobsContainer = (props) => {
     return (
-        <div>
-            <TableHeader />
-        </div>
+        <JobTable apiFetch={props.apiFetch}/>
     )
 }
 
