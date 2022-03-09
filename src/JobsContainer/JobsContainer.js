@@ -1,19 +1,16 @@
 import TableHeader from "../TableHeader/TableHeader";
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
 import {useState} from "react"
-const JobsContainer = () => {
-
+const JobsContainer = (props) => {
    
     const [jobTitle, setJobTitle] = useState('')
     const [company, setCompany] = useState('')
     const [modalDisplay, setModalDisplay] = useState('hidden')
 
-
-    const [modalJobTitle, setModalJobTitle] = useState('')
-    const [modalCompany, setModalCompany] = useState('')
-
-    const openJobDetailModal = (jobId) => {
+    const openJobDetailModal = () => {
         setModalDisplay('')
+        setJobTitle('Junior dev1')
+        setCompany('Google')
     }
 
     const closeHandleClick = () => {
@@ -23,17 +20,13 @@ const JobsContainer = () => {
     return (
         <div className={'jobs-container'}>
             
-            <TableHeader
-                openJobDetailModal={openJobDetailModal}
+            <TableHeader openJobDetailModal={openJobDetailModal} />
+            <JobDetailModal
                 jobTitle={jobTitle}
                 company={company}
-            />
-            <JobDetailModal
-                jobTitle={modalJobTitle}
-                company={modalCompany}
                 modalDisplay={modalDisplay}
                 closeHandleClick={closeHandleClick}
-                // exampleArray={exampleArray}
+                apiFetch={props.apiFetch}
             />
         </div>
     )

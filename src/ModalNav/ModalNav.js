@@ -5,9 +5,8 @@ const ModalNav = (props) => {
     return (
         <div
         className={'modal-nav'}>
-        <p>{props.jobTitle} - {props.company}</p>
-
-        <CloseIcon closeHandleClick={props.closeHandleClick} />
+        <p>{props.modalData.job_title} - {props.modalData.company}</p>
+            <button onClick={props.closeHandleClick}>Close</button>
         </div>
     )
 }
