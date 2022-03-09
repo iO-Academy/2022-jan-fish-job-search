@@ -1,5 +1,4 @@
 import './ModalNav.scss'
-import CloseIcon from "../CloseIcon/CloseIcon";
 
 const ModalNav = (props) => {
 
