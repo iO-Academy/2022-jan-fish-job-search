@@ -1,5 +1,6 @@
 import './App.css';
 import './App.scss';
+import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 
@@ -14,11 +15,11 @@ function App() {
     ApiFetch('http://localhost:8080/jobs/recent')
     return (
         <div className="App">
+            <Header />
+            <Main />
+            <Footer />
 
-      <Main />
-      <Footer />
-
-    </div>
+        </div>
   );
 }
 
