@@ -26,12 +26,13 @@ const JobTable = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {(recentJobs != null) ? (
-                        recentJobs.map(job => (
-                            <JobCard job={job} key={job.id}/>
-                        ))
+                {(recentJobs === null) ? (
+                        <td>Loading....</td>
+
                 ) : (
-                    <td>Loading....</td>
+                    recentJobs.map(job => (
+                        <JobCard job={job} key={job.id}/>
+                    ))
                 )}
                 </tbody>
             </table>
