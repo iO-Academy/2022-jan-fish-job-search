@@ -13,7 +13,6 @@ const JobTable = (props) => {
         fetchRecentJobs()
     },[])
 
-
     return (
         <div className={'container'}>
             <h1>Most recent jobs</h1>

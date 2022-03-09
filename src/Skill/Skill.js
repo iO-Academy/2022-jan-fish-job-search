@@ -1,6 +1,6 @@
 const Skill = (props) => {
     return (
-            <span className={'badge bg-teal m-1'}>{props.jobSkill}</span>
+        <span className={'badge bg-teal m-1'}>{props.jobSkill}</span>
     )
 }
 
