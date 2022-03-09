@@ -2,7 +2,7 @@ import ModalHeader from "../ModalHeader/ModalHeader";
 
 const KeyFacts = (props) => {
     return (
-        <div>
+        <div className="container">
             <ModalHeader />
             <h4>Key facts:</h4>
             <table className="table">
@@ -16,10 +16,10 @@ const KeyFacts = (props) => {
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{props.salary}</td>
-                    <td>{props.type}</td>
-                    <td>{props.date}</td>
-                    <td>{props.skills}</td>
+                    <td>{props.modalData.salary}</td>
+                    <td>{props.modalData.type}</td>
+                    <td>{props.modalData.salary}</td>
+                    <td>{props.modalData.salary}</td>
                 </tr>
                 </tbody>
             </table>
