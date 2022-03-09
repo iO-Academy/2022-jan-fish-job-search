@@ -8,7 +8,7 @@ import KeyFacts from "./KeyFacts/KeyFacts";
 const ApiFetch = async (url) => {
         let data = await fetch(url)
         let jsonData = await data.json()
-        console.log(jsonData)
+        return jsonData
 }
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
 
       <Main />
-      <KeyFacts />
+      <KeyFacts apiFetch={ApiFetch}/>
       <Footer />
 
     </div>
