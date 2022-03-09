@@ -10,7 +10,7 @@ const KeyFacts = (props) => {
         const [modalData, setModalData] = useState(null)
 
         const fetchJobsData = async () => {
-            let response = await props.apiFetch("http://localhost:8080/jobs/400")
+            let response = await props.apiFetch("http://localhost:8080/jobs/300")
             setModalData(response)
         }
 
