@@ -1,6 +1,3 @@
-import Skill from "../Skill/Skill";
-import CompanyLogo from "../CompanyLogo/CompanyLogo";
-import Type from "../Type/Type";
 import {useEffect, useState} from "react";
 import JobCard from "../JobCard/JobCard";
 
@@ -17,47 +14,30 @@ const JobTable = (props) => {
     },[])
 
 
-   if (recentJobs != null){
-        return (
-            <div className={'container'}>
-                <h1>Most recent jobs</h1>
-                <table className="table table-dark table-striped table-borderless">
-                    <thead>
-                    <tr className={'d-flex'}>
-                        <th className="col-5" scope="col">Job title / Company</th>
-                        <th className="col-1" scope="col">Type</th>
-                        <th className="col-2" scope="col">Salary</th>
-                        <th className="col-4" scope="col">Skills</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {recentJobs.map(job => (
-                        <JobCard job={job} key={job.id}/>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
-        )
-    } else {
-       return(
-           <div>
-               <h1>Most recent jobs</h1>
-               <table className="table table-dark table-striped container">
-                   <thead className="thead-dark">
-                   <tr>
-                       <th className="col-5" scope="col">Job title / Company</th>
-                       <th className="col-1" scope="col">Type</th>
-                       <th className="col-2" scope="col">Salary</th>
-                       <th className="col-4" scope="col">Skills</th>
-                   </tr>
-                   <tr>
-                       <td>Loading....</td>
-                   </tr>
-                   </thead>
-               </table>
-           </div>
-       )
-   }
+    return (
+        <div className={'container'}>
+            <h1>Most recent jobs</h1>
+            <table className="table table-dark table-striped table-borderless">
+                <thead>
+                <tr className={'d-flex'}>
+                    <th className="col-4 col-lg-5" scope="col">Job title / Company</th>
+                    <th className="col-2 col-lg-1" scope="col">Type</th>
+                    <th className="col-2" scope="col">Salary</th>
+                    <th className="col-4" scope="col">Skills</th>
+                </tr>
+                </thead>
+                <tbody>
+                {(recentJobs != null) ? (
+                        recentJobs.map(job => (
+                            <JobCard job={job} key={job.id}/>
+                        ))
+                ) : (
+                    <td>Loading....</td>
+                )}
+                </tbody>
+            </table>
+        </div>
+    )
 }
 
 export default JobTable
