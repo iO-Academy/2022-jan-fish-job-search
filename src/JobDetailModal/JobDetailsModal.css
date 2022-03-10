@@ -1,0 +1,16 @@
+.job-detail-modal {
+  width: 80%;
+  height: 700px;
+  border: black solid 1px;
+  position: absolute;
+  top: 350px;
+  left: 50%;
+  transform: translate(-50%);
+  background: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=JobDetailsModal.css.map */
