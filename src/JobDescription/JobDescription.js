@@ -1,4 +1,4 @@
-import './JobDescription.scss'
+
 
 const JobDescription = (props) => {
     return (
