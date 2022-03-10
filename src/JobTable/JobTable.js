@@ -28,7 +28,6 @@ const JobTable = (props) => {
                 <tbody>
                 {(recentJobs === null) ? (
                         <tr><td>Loading....</td></tr>
-
                 ) : (
                     recentJobs.map(job => (
                         <JobCard
@@ -37,8 +36,6 @@ const JobTable = (props) => {
                             openJobDetailModal={props.openJobDetailModal}
                             modalJobId={props.modalJobId}
                             fetchModalData={props.fetchModalData}
-
-
                         />
                     ))
                 )}

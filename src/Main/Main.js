@@ -1,5 +1,5 @@
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
-import {useEffect, useState} from "react"
+import {useState} from "react"
 import JobTable from "../JobTable/JobTable";
 
 const Main = (props) => {
@@ -22,7 +22,7 @@ const Main = (props) => {
         setModalData(response)
     }
 
-    let jobRowId = 90
+
     return (
         <main className={'jobs-container'}>
 

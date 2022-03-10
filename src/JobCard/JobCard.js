@@ -6,11 +6,12 @@ import {useEffect} from "react";
 const JobCard = (props) => {
 
     const handleClick = () => {
-        props.openJobDetailModal()
+        props.openJobDetailModal(props.job.id)
     }
 
     useEffect( () => {
-        props.fetchModalData()
+        props.fetchModalData(props.modalJobId)
+
     }, [props.modalJobId])
 
 
