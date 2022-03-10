@@ -4,8 +4,6 @@ import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import KeyFacts from "./KeyFacts/KeyFacts";
 
-
-
 const App = () => {
     const apiFetch = async (url) => {
         let data = await fetch(url)
@@ -13,11 +11,12 @@ const App = () => {
         return jsonData
 }
     return (
-        <div className="App">
-            <Main apiFetch={apiFetch} />
-            <Footer />
+        <div>
+            <Main apiFetch={apiFetch}/>
+            <Footer/>
         </div>
+
   )
 }
 
-export default App;
+export default App
