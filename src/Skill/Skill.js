@@ -4,7 +4,10 @@ const Skill = (props) => {
     skillClass += ' badge m-1 bg-teal'
 
     return (
-        <span className={skillClass}>{props.jobSkill}</span>
+        <div>
+            <span className={skillClass}>{props.jobSkill}</span>
+        </div>
+
     )
 }
 

@@ -43,7 +43,7 @@ const SearchContainer = (props) => {
                         ''
                     ) : (
                         skillsMap.map(skillObject => (
-                            <div><Skill jobSkill={skillObject.skill} key={'header-' + skillObject.id}/></div>
+                            <Skill jobSkill={skillObject.skill} key={skillObject.id}/>
                         ))
                     )}
                     <div>
