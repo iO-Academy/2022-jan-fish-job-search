@@ -4,18 +4,37 @@ import ViewJobsAndSearchsLink from "../ViewJobsAndSearchsLink/ViewJobsAndSearchs
 
 const JobTable = (props) => {
 
+    const [header, setHeader] = useState('Most recent jobs')
+
     useEffect(() => {
         props.fetchRecentJobs()
     },[])
 
     const printHeaderText = () => {
-        console.log('null')
+        switch (props.currentlyOnJobTable) {
+            case ('recentJobs'):
+                setHeader('Most recent jobs')
+                break
+            case ('searchResults'):
+                setHeader('Search Results')
+                break
+            case ('allJobs'):
+                setHeader('All jobs')
+                break
+            case ('loading'):
+                setHeader('Loading...')
+                break
+            default:
+                break
+        }
     }
+
+    useEffect(printHeaderText, [props.currentlyOnJobTable])
 
     return (
         <main className={'container'}>
             <div className={'d-flex align-items-center justify-content-between'}>
-                    <h1>Most recent jobs</h1>
+                <h1>{header}</h1>
                 <ViewJobsAndSearchsLink
                     fetchRecentJobs={props.fetchRecentJobs}
                     fetchAllJobs={props.fetchAllJobs}
