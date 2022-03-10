@@ -22,6 +22,7 @@ const JobsContainer = (props) => {
         setModalData(response)
     }
 
+    let jobRowId = 300
 
     return (
         <div className={'jobs-container'}>
