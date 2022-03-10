@@ -1,5 +1,6 @@
 import TableHeader from "../TableHeader/TableHeader";
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
+import JobTable from "../JobTable/JobTable";
 import {useEffect, useState} from "react"
 
 const JobsContainer = (props) => {
@@ -26,8 +27,9 @@ const JobsContainer = (props) => {
 
     return (
         <div className={'jobs-container'}>
-            
-            <TableHeader
+
+            <JobTable
+                apiFetch={props.apiFetch}
                 openJobDetailModal={openJobDetailModal}
                 modalJobId={modalJobId}
                 fetchModalData={fetchModalData}

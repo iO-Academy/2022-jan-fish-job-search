@@ -13,6 +13,14 @@ const JobTable = (props) => {
         fetchRecentJobs()
     },[])
 
+    const handleClick = () => {
+        props.openJobDetailModal()
+    }
+
+    useEffect( () => {
+        props.fetchModalData(props.jobRowId)
+    }, [props.modalJobId])
+
     return (
         <div className={'container'}>
             <h1>Most recent jobs</h1>

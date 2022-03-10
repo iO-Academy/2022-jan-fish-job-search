@@ -1,6 +1,8 @@
 import './App.scss';
+import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
+import {useState} from "react";
 
 const App = () => {
     const apiFetch = async (url) => {
@@ -9,11 +11,23 @@ const App = () => {
         return jsonData
     }
 
+
+
+
+    // to trigger upon click of search button
+    // const handleClick = () => {
+    //     fetchSearchUrl()
+    // }
+
+
+
+
     return (
         <div className="App">
-            <Main apiFetch={apiFetch} />
+            <Header ApiFetch={apiFetch}/>
+            <Main apiFetch={apiFetch}/>
             <Footer />
         </div>
-  );
+  )
 }
 export default App
