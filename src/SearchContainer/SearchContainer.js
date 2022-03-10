@@ -31,7 +31,7 @@ const SearchContainer = (props) => {
         <div className={'d-flex flex-column justify-content-start gap-1'}>
             <input type="text" className="form-control" placeholder="job title / keyword / skill / company" aria-label="search bar" aria-describedby="search for jobs here" onChange={ (event) => props.handleSearchOnChange(event)}/>
             <div className={'d-flex justify-content-between'}>
-                <div className={'d-flex gap-3'} id={'type-checkbox-container'}>
+                <div className={'d-flex flex-wrap gap-3'} id={'type-checkbox-container'}>
                     <TypeCheckbox type={'Full time'}/>
                     <TypeCheckbox type={'Part time'}/>
                     <TypeCheckbox type={'Contract'}/>
