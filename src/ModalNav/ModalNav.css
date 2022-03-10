@@ -14,5 +14,8 @@
 .modal-nav img {
   height: 20px;
 }
+.modal-nav img:hover {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=ModalNav.css.map */

@@ -1,3 +1,5 @@
+import './JobDescription.scss'
+
 const JobDescription = (props) => {
     return (
         <div className={'job-description container'}>

@@ -2,7 +2,7 @@
 
 .job-detail-modal {
   width: 60%;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 50%;
   transform: translate(-50%);
@@ -27,4 +27,20 @@
 
 .modalHeader {
   color: #ffffff;
+}
+
+@media screen and (max-width: 700px) {
+  .job-detail-modal {
+    overflow: scroll;
+    width: 95vw;
+    height: 90vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .job-detail-modal {
+    overflow: scroll;
+    width: 95vw;
+    height: 90vh;
+  }
 }
