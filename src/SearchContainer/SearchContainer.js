@@ -1,5 +1,4 @@
 import Button from "../Button/Button";
-import TypeCheckbox from "../TypeCheckbox/TypeCheckbox";
 import {useEffect, useState} from "react";
 import Skill from "../Skill/Skill";
 
@@ -10,7 +9,7 @@ const SearchContainer = (props) => {
     const [showingPopularSkills, setShowingPopularSkills] = useState(true)
 
     const getSkillsAndSort = async () => {
-        let response = await props.ApiFetch('http://localhost:8080/skills')
+        let response = await props.apiFetch('http://localhost:8080/skills')
         response.sort(function (a, b) {
             return b.job_count - a.job_count
         })
@@ -45,7 +44,7 @@ const SearchContainer = (props) => {
                     </div>
                 </div>
             <div>
-                <Button buttonLabel={'Search'}/>
+                <Button fetchSearchResults={props.fetchSearchResults} buttonLabel={"search"}/>
             </div>
         </div>
     )

@@ -3,16 +3,10 @@ import JobCard from "../JobCard/JobCard";
 import ViewJobsAndSearchsLink from "../ViewJobsAndSearchsLink/ViewJobsAndSearchsLink";
 
 const JobTable = (props) => {
-    const [recentJobs, setRecentJobs] = useState(null)
-    const [allJobs, setAllJobs] = useState(null)
 
-    const fetchRecentJobs = async () => {
-        let response = await props.apiFetch("http://localhost:8080/jobs/recent")
-        setRecentJobs(response)
-    }
 
     useEffect(() => {
-        fetchRecentJobs()
+        props.fetchRecentJobs()
     },[])
 
     const handleClick = () => {
@@ -38,14 +32,12 @@ const JobTable = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {(recentJobs === null) ? (
+                {(props.showOnJobTable === null) ? (
                         <tr><td>Loading....</td></tr>
-
                 ) : (
-                    recentJobs.map(job => (
-                        <JobCard job={job} key={job.id}/>
-                    ))
-                )}
+                        props.showOnJobTable.map(job => (
+                            <JobCard job={job} key={job.id}/>
+                )))}
                 </tbody>
             </table>
         </main>

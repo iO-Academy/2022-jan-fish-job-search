@@ -6,7 +6,7 @@ const Button = (props) => {
 
     return (
         <>
-            <button type="button" className={buttonClass}>{props.buttonLabel}</button>
+            <button onClick={props.fetchSearchResults} type="button" className={buttonClass}>{props.buttonLabel}</button>
         </>
     )
 }
