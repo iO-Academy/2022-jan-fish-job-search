@@ -21,12 +21,15 @@ const JobTable = (props) => {
             case ('allJobs'):
                 setHeader('All jobs')
                 break
+            case ('loading'):
+                setHeader('Loading...')
+                break
             default:
                 break
         }
     }
 
-    //useEffect(printHeaderText, props.currentlyOnJobTable) // infinite loop?
+    useEffect(printHeaderText, [props.currentlyOnJobTable])
 
     return (
         <main className={'container'}>
