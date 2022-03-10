@@ -6,8 +6,8 @@ import {useState} from "react";
 
 const App = () => {
     const [fieldInput, setFieldInput] = useState()
-    const[searchResults, setSearchResults] = useState()
-    const[showSearchResults, setShowSearchResults] = useState(false)
+    const[dataOnJobTable, setDataOnJobTable] = useState(null)
+    const[currentlyOnJobTable, setCurrentlyOnJobTable] = useState('loading')
 
     const apiFetch = async (url) => {
         let data = await fetch(url)
@@ -15,14 +15,29 @@ const App = () => {
         return jsonData
     }
 
-    const handleSearchOnChange = (event) => {
-        setFieldInput(event.target.value)
+    const fetchRecentJobs = async () => {
+        setCurrentlyOnJobTable('loading')
+        let response = await apiFetch("http://localhost:8080/jobs/recent")
+        setDataOnJobTable(response)
+        setCurrentlyOnJobTable('recentJobs')
+    }
+
+    const fetchAllJobs = async () => {
+        setCurrentlyOnJobTable('loading')
+        let response = await apiFetch("http://localhost:8080/jobs")
+        setDataOnJobTable(response)
+        setCurrentlyOnJobTable('allJobs')
     }
 
     const fetchSearchResults = async () => {
+        setCurrentlyOnJobTable('loading')
         let response = await apiFetch("http://localhost:8080/jobs?search=" + fieldInput)
-        setSearchResults(response)
-        setShowSearchResults(!showSearchResults)
+        setDataOnJobTable(response)
+        setCurrentlyOnJobTable('searchResults')
+    }
+
+    const handleSearchOnChange = (event) => {
+        setFieldInput(event.target.value)
     }
 
     return (
@@ -33,9 +48,11 @@ const App = () => {
                 fetchSearchResults={fetchSearchResults}
             />
             <JobTable
-                apiFetch={apiFetch}
-                searchResults={searchResults}
-                showSearchResults={showSearchResults}
+                fetchRecentJobs={fetchRecentJobs}
+                fetchAllJobs={fetchAllJobs}
+                fetchSearchResults={fetchSearchResults}
+                dataOnJobTable={dataOnJobTable}
+                currentlyOnJobTable={currentlyOnJobTable}
             />
             <Footer/>
         </div>

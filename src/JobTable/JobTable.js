@@ -1,25 +1,34 @@
 import {useEffect, useState} from "react";
 import JobCard from "../JobCard/JobCard";
+import ViewJobsAndSearchsLink from "../ViewJobsAndSearchsLink/ViewJobsAndSearchsLink";
 
 const JobTable = (props) => {
-    const [recentJobs, setRecentJobs] = useState(null)
-
-    const fetchRecentJobs = async () => {
-        let response = await props.apiFetch("http://localhost:8080/jobs/recent")
-        setRecentJobs(response)
-    }
 
     useEffect(() => {
-        fetchRecentJobs()
+        props.fetchRecentJobs()
     },[])
 
-    const handleClick = () => {
-        props.openJobDetailModal()
+    const printHeaderText = () => {
+        console.log('null')
     }
 
     return (
         <main className={'container'}>
-            <h1>Most recent jobs</h1>
+            <div className={'d-flex align-items-center justify-content-between'}>
+                    <h1>Most recent jobs</h1>
+                <ViewJobsAndSearchsLink
+                    fetchRecentJobs={props.fetchRecentJobs}
+                    fetchAllJobs={props.fetchAllJobs}
+                    currentlyOnJobTable={props.currentlyOnJobTable}
+                />
+            </div>
+            <div>
+                {(props.currentlyOnJobTable === "searchResults") ? (
+                    <p>Showing {props.dataOnJobTable.length} jobs</p>
+                ) : (
+                    ""
+                )}
+            </div>
             <table className="table table-dark table-striped table-borderless">
                 <thead>
                 <tr className={'d-flex'}>
@@ -30,18 +39,12 @@ const JobTable = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {(recentJobs === null) ? (
+                {(props.currentlyOnJobTable === 'loading') ? (
                         <tr><td>Loading....</td></tr>
-
                 ) : (
-                    (props.showSearchResults) ? (
-                        props.searchResults.map(job => (
+                        props.dataOnJobTable.map(job => (
                             <JobCard job={job} key={job.id}/>
-                        ))) : (
-                    recentJobs.map(job => (
-                        <JobCard job={job} key={job.id}/>
-                    ))
-                ))}
+                )))}
                 </tbody>
             </table>
         </main>
