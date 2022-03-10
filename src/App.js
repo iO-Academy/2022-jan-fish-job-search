@@ -29,6 +29,8 @@ const App = () => {
         setShowOnJobTable(response)
     }
 
+    let arrayCount = showOnJobTable.length
+
     const handleSearchOnChange = (event) => {
         setFieldInput(event.target.value)
     }
@@ -45,6 +47,7 @@ const App = () => {
                 fetchAllJobs={fetchAllJobs}
                 fetchSearchResults={fetchSearchResults}
                 showOnJobTable={showOnJobTable}
+                arrayCount={arrayCount}
             />
             <Footer/>
         </div>

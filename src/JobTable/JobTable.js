@@ -13,21 +13,17 @@ const JobTable = (props) => {
         props.openJobDetailModal()
     }
 
-    const displayJobsCount = () => {
-        if(props.fetchRecentJobs) {
-            return <p>Showing most recent jobs</p>
-        } else if(props.fetchAllJobs) {
-            return <p>Showing all jobs</p>
-        } else if(props.fetchSearchResults) {
-            return <p>Showing 0 jobs</p>
-        }
-    }
-
     return (
         <main className={'container'}>
             <div className={'d-flex align-items-center justify-content-between'}>
                 <h1>Most recent jobs</h1>
-                <p>{displayJobsCount}</p>
+                <div>
+                    {(props.currentlyOnTable === true) ? (
+                        <p>Showing {props.arrayCount} jobs</p>
+                    ) : (
+                        ""
+                    )}
+                </div>
                 <ViewJobsAndSearchsLink
                     label={'View all jobs' + String.fromCharCode(8594)}
                     onClick={() => console.log('click')}
