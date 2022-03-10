@@ -7,7 +7,10 @@ const JobCard = (props) => {
         <tr className={'d-flex'} data-id={props.job.id}>
             <td className={'d-flex flex-row col-4 col-lg-5 p-2'}>
                 <div className={'col-3 d-none d-lg-block'}>
-                    <CompanyLogo logo={props.job.logo} companyName={props.job.company}/>
+                    <CompanyLogo
+                        logo={props.job.logo}
+                        companyName={props.job.company}
+                    />
                 </div>
                 <div className={'col-9 col-md-12'}>
                     <h3 className={'card-title p-1'}>{props.job.job_title}</h3>

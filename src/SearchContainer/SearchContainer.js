@@ -26,9 +26,15 @@ const SearchContainer = (props) => {
         getSkillsAndSort()
     }, [])
 
+    const handleKeyPress = (event) => {
+        if(event.key === 'Enter')
+            props.fetchSearchResults()
+    }
+
+
     return(
         <div className={'d-flex flex-column justify-content-start gap-1'}>
-            <input type="text" className="form-control" placeholder="job title / keyword / skill / company" aria-label="search bar" aria-describedby="search for jobs here" onChange={ (event) => props.handleSearchOnChange(event)}/>
+            <input type="text" onKeyPress={handleKeyPress} className="form-control" placeholder="job title / keyword / skill / company" aria-label="search bar" aria-describedby="search for jobs here" onChange={ (event) => props.handleSearchOnChange(event)}/>
 
                 <div className={'d-flex gap-1 flex-wrap justify-content-end'}>
                     <p className={'text-white'}>Popular skills:</p>
