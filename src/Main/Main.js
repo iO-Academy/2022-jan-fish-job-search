@@ -1,12 +1,11 @@
-import TableHeader from "../TableHeader/TableHeader";
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
+import {useState} from "react"
 import JobTable from "../JobTable/JobTable";
-import {useEffect, useState} from "react"
 
-const JobsContainer = (props) => {
+const Main = (props) => {
 
     const [modalDisplay, setModalDisplay] = useState('hidden')
-    const [modalJobId, setModalJobId] = useState('')
+    const [modalJobId, setModalJobId] = useState(1)
 
     const openJobDetailModal = (jobRowId) => {
         setModalDisplay('')
@@ -23,14 +22,20 @@ const JobsContainer = (props) => {
         setModalData(response)
     }
 
+
     return (
-        <div className={'jobs-container'}>
+        <main className={'jobs-container'}>
 
             <JobTable
                 apiFetch={props.apiFetch}
                 openJobDetailModal={openJobDetailModal}
                 modalJobId={modalJobId}
                 fetchModalData={fetchModalData}
+                fetchRecentJobs={props.fetchRecentJobs}
+                fetchAllJobs={props.fetchAllJobs}
+                fetchSearchResults={props.fetchSearchResults}
+                dataOnJobTable={props.dataOnJobTable}
+                currentlyOnJobTable={props.currentlyOnJobTable}
             />
 
             <JobDetailModal
@@ -40,9 +45,10 @@ const JobsContainer = (props) => {
                 modalJobId={modalJobId}
                 fetchModalData={fetchModalData}
                 modalData={modalData}
+
             />
-        </div>
+        </main>
     )
 }
 
-export default JobsContainer
+export default Main

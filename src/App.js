@@ -1,6 +1,7 @@
+import './App.css';
 import './App.scss';
 import Header from "./Header/Header";
-import JobTable from "./JobTable/JobTable";
+import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import {useState} from "react";
 
@@ -47,7 +48,8 @@ const App = () => {
                 handleSearchOnChange={handleSearchOnChange}
                 fetchSearchResults={fetchSearchResults}
             />
-            <JobTable
+            <Main
+                apiFetch={apiFetch}
                 fetchRecentJobs={fetchRecentJobs}
                 fetchAllJobs={fetchAllJobs}
                 fetchSearchResults={fetchSearchResults}
@@ -56,6 +58,7 @@ const App = () => {
             />
             <Footer/>
         </div>
-  )
+    )
 }
+
 export default App

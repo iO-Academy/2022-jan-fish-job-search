@@ -63,7 +63,13 @@ const JobTable = (props) => {
                 ) : (
                     (props.dataOnJobTable.length === 0) ? (<tr><td>Sorry, no results....</td></tr>) :
                         props.dataOnJobTable.map(job => (
-                        <JobCard job={job} key={job.id}/>
+                        <JobCard
+                            job={job}
+                            key={job.id}
+                            openJobDetailModal={props.openJobDetailModal}
+                            modalJobId={props.modalJobId}
+                            fetchModalData={props.fetchModalData}
+                        />
                 )))}
                 </tbody>
             </table>

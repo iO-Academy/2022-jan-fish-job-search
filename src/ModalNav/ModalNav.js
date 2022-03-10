@@ -5,7 +5,7 @@ const ModalNav = (props) => {
     return (
         <div className={'modal-nav'}>
             <p>{props.modalData.job_title} - {props.modalData.company}</p>
-            <button onClick={props.closeHandleClick}>Close</button>
+            <img onClick={props.closeHandleClick} src={'close-icon.svg'} alt={'close-icon'}/>
         </div>
     )
 }
