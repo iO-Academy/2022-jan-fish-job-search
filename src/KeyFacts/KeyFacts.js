@@ -9,7 +9,7 @@ import Skill from "../Skill/Skill";
 const KeyFacts = (props) => {
 
         return (
-            <div className="container">
+            <div className="container key-facts">
                 <h4>Key facts:</h4>
                 <table className="table">
                     <thead>
@@ -29,7 +29,10 @@ const KeyFacts = (props) => {
                                 <p>£{parseFloat(props.modalData.salary).toLocaleString('en')}</p>
                             )}
                         </td>
-                        <td><Type type={props.modalData.type} /></td>
+                        <td><Type
+                            type={props.modalData.type}
+                            backgroundColor={'bg-primary'}
+                        /></td>
                         <td>{props.modalData.posted}</td>
                         <td>
                             {props.modalData.skills.map(skillObject => (
