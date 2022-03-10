@@ -30,12 +30,7 @@ const SearchContainer = (props) => {
     return(
         <div className={'d-flex flex-column justify-content-start gap-1'}>
             <input type="text" className="form-control" placeholder="job title / keyword / skill / company" aria-label="search bar" aria-describedby="search for jobs here" onChange={ (event) => props.handleSearchOnChange(event)}/>
-            <div className={'d-flex justify-content-between'}>
-                <div className={'d-flex flex-wrap gap-3'} id={'type-checkbox-container'}>
-                    <TypeCheckbox type={'Full time'}/>
-                    <TypeCheckbox type={'Part time'}/>
-                    <TypeCheckbox type={'Contract'}/>
-                </div>
+
                 <div className={'d-flex gap-1 flex-wrap justify-content-end'}>
                     <p className={'text-white'}>Popular skills:</p>
                     {(skillsMap === null) ? (
@@ -46,11 +41,9 @@ const SearchContainer = (props) => {
                         ))
                     )}
                     <div>
-                        <span onClick={handleSeeMoreSkillsClick} className={'badge m-1 bg-light text-dark'}>{(showingPopularSkills) ? ('See more ' + String.fromCharCode(8594)) : ('See less ' + String.fromCharCode(8592))}</span>
+                        <span onClick={handleSeeMoreSkillsClick} id={'see-more-less-skills-button'} className={'badge m-1 bg-light text-dark'}>{(showingPopularSkills) ? ('See more ' + String.fromCharCode(8594)) : ('See less ' + String.fromCharCode(8592))}</span>
                     </div>
                 </div>
-
-            </div>
             <div>
                 <Button buttonLabel={'Search'}/>
             </div>
