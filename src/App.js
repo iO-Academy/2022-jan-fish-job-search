@@ -50,6 +50,7 @@ const App = () => {
             <JobTable
                 fetchRecentJobs={fetchRecentJobs}
                 fetchAllJobs={fetchAllJobs}
+                fetchSearchResults={fetchSearchResults}
                 dataOnJobTable={dataOnJobTable}
                 currentlyOnJobTable={currentlyOnJobTable}
             />

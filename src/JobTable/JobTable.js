@@ -41,6 +41,13 @@ const JobTable = (props) => {
                     currentlyOnJobTable={props.currentlyOnJobTable}
                 />
             </div>
+            <div>
+                {(props.currentlyOnJobTable === "searchResults") ? (
+                    <p>Showing {props.dataOnJobTable.length} jobs</p>
+                ) : (
+                    ""
+                )}
+            </div>
             <table className="table table-dark table-striped table-borderless">
                 <thead>
                 <tr className={'d-flex'}>
