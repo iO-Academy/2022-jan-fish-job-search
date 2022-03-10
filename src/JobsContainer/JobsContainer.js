@@ -1,10 +1,10 @@
-import TableHeader from "../TableHeader/TableHeader";
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
+import JobTable from "../JobTable/JobTable";
 
-const JobsContainer = () => {
+const JobsContainer = (props) => {
     return (
         <div>
-            <TableHeader />
+            <JobTable apiFetch={props.apiFetch}/>
             <JobDetailModal />
         </div>
     )
