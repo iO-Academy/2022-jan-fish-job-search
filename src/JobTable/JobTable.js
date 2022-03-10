@@ -13,8 +13,12 @@ const JobTable = (props) => {
         fetchRecentJobs()
     },[])
 
+    const handleClick = () => {
+        props.openJobDetailModal()
+    }
+
     return (
-        <div className={'container'}>
+        <main className={'container'}>
             <h1>Most recent jobs</h1>
             <table className="table table-dark table-striped table-borderless">
                 <thead>
@@ -30,13 +34,17 @@ const JobTable = (props) => {
                         <tr><td>Loading....</td></tr>
 
                 ) : (
+                    (props.showSearchResults) ? (
+                        props.searchResults.map(job => (
+                            <JobCard job={job} key={job.id}/>
+                        ))) : (
                     recentJobs.map(job => (
                         <JobCard job={job} key={job.id}/>
                     ))
-                )}
+                ))}
                 </tbody>
             </table>
-        </div>
+        </main>
     )
 }
 

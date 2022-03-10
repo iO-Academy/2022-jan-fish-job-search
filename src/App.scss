@@ -1,12 +1,14 @@
+.body {
+  font-size: 10px;
+}
+
 header {
   background-image: linear-gradient(#00000070, #00000070), url("../src/Header/happy-workers.jpg");
   background-size: cover;
 }
+
 #see-more-less-skills-button {
   cursor: pointer;
-}
-#type-checkbox-container {
-  gap: 10px;
 }
 
 .bg-teal {

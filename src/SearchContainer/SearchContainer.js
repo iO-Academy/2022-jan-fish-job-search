@@ -1,5 +1,4 @@
 import Button from "../Button/Button";
-import TypeCheckbox from "../TypeCheckbox/TypeCheckbox";
 import {useEffect, useState} from "react";
 import Skill from "../Skill/Skill";
 
@@ -10,7 +9,7 @@ const SearchContainer = (props) => {
     const [showingPopularSkills, setShowingPopularSkills] = useState(true)
 
     const getSkillsAndSort = async () => {
-        let response = await props.ApiFetch('http://localhost:8080/skills')
+        let response = await props.apiFetch('http://localhost:8080/skills')
         response.sort(function (a, b) {
             return b.job_count - a.job_count
         })
@@ -27,9 +26,15 @@ const SearchContainer = (props) => {
         getSkillsAndSort()
     }, [])
 
+    const handleKeyPress = (event) => {
+        if(event.key === 'Enter')
+            props.fetchSearchResults()
+    }
+
+
     return(
         <div className={'d-flex flex-column justify-content-start gap-1'}>
-            <input type="text" className="form-control" placeholder="job title / keyword / skill / company" aria-label="search bar" aria-describedby="search for jobs here" onChange={ (event) => props.handleSearchOnChange(event)}/>
+            <input type="text" onKeyPress={handleKeyPress} className="form-control" placeholder="job title / keyword / skill / company" aria-label="search bar" aria-describedby="search for jobs here" onChange={ (event) => props.handleSearchOnChange(event)}/>
 
                 <div className={'d-flex gap-1 flex-wrap justify-content-end'}>
                     <p className={'text-white'}>Popular skills:</p>
@@ -45,7 +50,7 @@ const SearchContainer = (props) => {
                     </div>
                 </div>
             <div>
-                <Button buttonLabel={'Search'}/>
+                <Button fetchSearchResults={props.fetchSearchResults} buttonLabel={"search"}/>
             </div>
         </div>
     )
