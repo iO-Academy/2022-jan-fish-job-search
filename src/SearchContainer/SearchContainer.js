@@ -1,22 +1,32 @@
 import Button from "../Button/Button";
 import TypeCheckbox from "../TypeCheckbox/TypeCheckbox";
 import {useEffect, useState} from "react";
+import Skill from "../Skill/Skill";
 
 const SearchContainer = (props) => {
 
-    const [skills, setSkills] = useState(null)
+    const [allSkills, setAllSkills] = useState(null)
+    const [popularSkills, setPopularSkills] = useState(null)
+    const [showingPopularSkills, setShowingPopularSkills] = useState(true)
 
-    const getSkills = async () => {
+    const getSkillsAndSort = async () => {
         let response = await props.ApiFetch('http://localhost:8080/skills')
-        console.log(response)
-        // take top 3 most used skills from response
-        // set to skills array
-        // use map to create skills using this array of 3 items
+        response.sort(function (a, b) {
+            return b.job_count - a.job_count
+        })
+        setAllSkills(response)
+        setPopularSkills(response.slice(0, 3))
+    }
+    const skillsMap = showingPopularSkills ? popularSkills : allSkills
+
+    const handleSeeMoreSkillsClick = () => {
+        setShowingPopularSkills(!showingPopularSkills)
     }
 
     useEffect(() => {
-        getSkills()
+        getSkillsAndSort()
     }, [])
+
 
     return(
         <div className={'d-flex flex-column justify-content-start gap-1'}>
@@ -27,8 +37,18 @@ const SearchContainer = (props) => {
                     <TypeCheckbox type={'Part time'}/>
                     <TypeCheckbox type={'Contract'}/>
                 </div>
-                <div className={'d-flex gap-1'}>
+                <div className={'d-flex gap-1 flex-wrap justify-content-end'}>
                     <p className={'text-white'}>Popular skills:</p>
+                    {(skillsMap === null) ? (
+                        ''
+                    ) : (
+                        skillsMap.map(skillObject => (
+                            <div><Skill jobSkill={skillObject.skill} key={'header-' + skillObject.id}/></div>
+                        ))
+                    )}
+                    <div>
+                        <span onClick={handleSeeMoreSkillsClick} className={'badge m-1 bg-light text-dark'}>{(showingPopularSkills) ? ('See more ' + String.fromCharCode(8594)) : ('See less ' + String.fromCharCode(8592))}</span>
+                    </div>
                 </div>
 
             </div>
