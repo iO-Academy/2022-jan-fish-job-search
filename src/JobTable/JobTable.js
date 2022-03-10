@@ -28,10 +28,15 @@ const JobTable = (props) => {
                 <tbody>
                 {(recentJobs === null) ? (
                         <tr><td>Loading....</td></tr>
-
                 ) : (
                     recentJobs.map(job => (
-                        <JobCard job={job} key={job.id}/>
+                        <JobCard
+                            job={job}
+                            key={job.id}
+                            openJobDetailModal={props.openJobDetailModal}
+                            modalJobId={props.modalJobId}
+                            fetchModalData={props.fetchModalData}
+                        />
                     ))
                 )}
                 </tbody>
