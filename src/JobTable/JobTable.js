@@ -1,8 +1,10 @@
 import {useEffect, useState} from "react";
 import JobCard from "../JobCard/JobCard";
+import ViewJobsAndSearchsLink from "../ViewJobsAndSearchsLink/ViewJobsAndSearchsLink";
 
 const JobTable = (props) => {
     const [recentJobs, setRecentJobs] = useState(null)
+    const [allJobs, setAllJobs] = useState(null)
 
     const fetchRecentJobs = async () => {
         let response = await props.apiFetch("http://localhost:8080/jobs/recent")
@@ -19,7 +21,13 @@ const JobTable = (props) => {
 
     return (
         <main className={'container'}>
-            <h1>Most recent jobs</h1>
+            <div className={'d-flex align-items-center justify-content-between'}>
+                <h1>Most recent jobs</h1>
+                <ViewJobsAndSearchsLink
+                    label={'View all jobs' + String.fromCharCode(8594)}
+                    onClick={() => console.log('click')}
+                />
+            </div>
             <table className="table table-dark table-striped table-borderless">
                 <thead>
                 <tr className={'d-flex'}>
