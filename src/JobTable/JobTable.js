@@ -14,7 +14,7 @@ const JobTable = (props) => {
     },[])
 
     return (
-        <div className={'container'}>
+        <main className={'container'}>
             <h1>Most recent jobs</h1>
             <table className="table table-dark table-striped table-borderless">
                 <thead>
@@ -36,7 +36,7 @@ const JobTable = (props) => {
                 )}
                 </tbody>
             </table>
-        </div>
+        </main>
     )
 }
 

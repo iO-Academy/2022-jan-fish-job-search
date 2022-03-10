@@ -1,5 +1,5 @@
 import './App.scss';
-import Main from "./Main/Main";
+import JobTable from "./JobTable/JobTable";
 import Footer from "./Footer/Footer";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
 
     return (
         <div>
-            <Main apiFetch={apiFetch}/>
+            <JobTable apiFetch={apiFetch}/>
             <Footer/>
         </div>
     );
