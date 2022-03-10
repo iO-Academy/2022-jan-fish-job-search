@@ -1,4 +1,5 @@
 import './ModalHeader.scss'
+import Type from "../Type/Type";
 
 
 const ModalHeader = (props) => {

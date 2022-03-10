@@ -2,7 +2,8 @@
 // import Type from "../Type/Type";
 // import Skill from "../Skill/Skill";
 import ModalHeader from "../ModalHeader/ModalHeader";
-import {useEffect, useState} from "react";
+import Type from "../Type/Type";
+import Skill from "../Skill/Skill";
 
 
 const KeyFacts = (props) => {
