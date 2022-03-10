@@ -10,7 +10,7 @@ const SearchContainer = (props) => {
     const [showingPopularSkills, setShowingPopularSkills] = useState(true)
 
     const getSkillsAndSort = async () => {
-        let response = await props.ApiFetch('http://localhost:8080/skills')
+        let response = await props.apiFetch('http://localhost:8080/skills')
         response.sort(function (a, b) {
             return b.job_count - a.job_count
         })
@@ -49,6 +49,9 @@ const SearchContainer = (props) => {
                         <span onClick={handleSeeMoreSkillsClick} className={'badge m-1 bg-light text-dark'}>{(showingPopularSkills) ? ('See more ' + String.fromCharCode(8594)) : ('See less ' + String.fromCharCode(8592))}</span>
                     </div>
                 </div>
+            </div>
+            <div>
+                <Button fetchSearchResults={props.fetchSearchResults} buttonLabel={"search"}/>
             </div>
         </div>
     )

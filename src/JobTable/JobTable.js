@@ -34,10 +34,14 @@ const JobTable = (props) => {
                         <tr><td>Loading....</td></tr>
 
                 ) : (
+                    (props.showSearchResults) ? (
+                        props.searchResults.map(job => (
+                            <JobCard job={job} key={job.id}/>
+                        ))) : (
                     recentJobs.map(job => (
                         <JobCard job={job} key={job.id}/>
                     ))
-                )}
+                ))}
                 </tbody>
             </table>
         </main>
