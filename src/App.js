@@ -3,9 +3,7 @@ import './App.scss';
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 
-
-
-function App() {
+const App = () => {
     const apiFetch = async (url) => {
         let data = await fetch(url)
         let jsonData = await data.json()
@@ -13,11 +11,10 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <Main apiFetch={apiFetch} />
-            <Footer />
+        <div>
+            <Main apiFetch={apiFetch}/>
+            <Footer/>
         </div>
-  );
+    );
 }
-
-export default App;
+export default App
