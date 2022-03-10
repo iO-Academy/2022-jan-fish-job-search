@@ -12,9 +12,9 @@ const JobDetailModal = (props) => {
                 <ModalNav
                     closeHandleClick={props.closeHandleClick}
                     modalData={props.modalData}
-
                 />
             )}
+            <p>{props.modalData.id}</p>
         </div>
 
     )
