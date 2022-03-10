@@ -15,19 +15,19 @@ const JobTable = (props) => {
     return (
         <main className={'container'}>
             <div className={'d-flex align-items-center justify-content-between'}>
-                <h1>Most recent jobs</h1>
-                <div>
-                    {(props.currentlyOnJobTable === "searchResults") ? (
-                        <p>Showing {props.currentlyOnJobTable.length} jobs</p>
-                    ) : (
-                        ""
-                    )}
-                </div>
+                    <h1>Most recent jobs</h1>
                 <ViewJobsAndSearchsLink
                     fetchRecentJobs={props.fetchRecentJobs}
                     fetchAllJobs={props.fetchAllJobs}
                     currentlyOnJobTable={props.currentlyOnJobTable}
                 />
+            </div>
+            <div>
+                {(props.currentlyOnJobTable === "searchResults") ? (
+                    <p>Showing {props.dataOnJobTable.length} jobs</p>
+                ) : (
+                    ""
+                )}
             </div>
             <table className="table table-dark table-striped table-borderless">
                 <thead>
