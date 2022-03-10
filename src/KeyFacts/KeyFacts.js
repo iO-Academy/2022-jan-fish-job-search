@@ -7,16 +7,16 @@ import {useEffect, useState} from "react";
 
 const KeyFacts = (props) => {
 
-        const [modalData, setModalData] = useState(null)
-
-        const fetchJobsData = async () => {
-            let response = await props.apiFetch("http://localhost:8080/jobs/300")
-            setModalData(response)
-        }
-
-        useEffect(() => {
-            fetchJobsData()
-        }, [])
+        // const [modalData, setModalData] = useState(null)
+        //
+        // const fetchJobsData = async () => {
+        //     let response = await props.apiFetch("http://localhost:8080/jobs/300")
+        //     setModalData(response)
+        // }
+        //
+        // useEffect(() => {
+        //     fetchJobsData()
+        // }, [])
 
         return (
             <div className="container">
@@ -34,19 +34,19 @@ const KeyFacts = (props) => {
                     <tbody>
                     <tr>
                         <td>
-                            {modalData === null ? (
+                            {props.modalData === null ? (
                                 ''
                             ) : (
-                                <p>£{parseFloat(modalData.salary).toLocaleString('en')}</p>
+                                <p>£{parseFloat(props.modalData.salary).toLocaleString('en')}</p>
                             )}
                         </td>
-                        {/*<td><Type type={props.modalData.type} /></td>*/}
-                        {/*<td>{props.modalData.posted}</td>*/}
-                        {/*<td>*/}
-                        {/*    {props.modalData.skills.map(skillObject => (*/}
-                        {/*    <Skill jobSkill={skillObject.skill} key={skillObject.id} />*/}
-                        {/*    ))}*/}
-                        {/*</td>*/}
+                        <td><Type type={props.modalData.type} /></td>
+                        <td>{props.modalData.posted}</td>
+                        <td>
+                            {props.modalData.skills.map(skillObject => (
+                            <Skill jobSkill={skillObject.skill} key={skillObject.id} />
+                            ))}
+                        </td>
                     </tr>
                     </tbody>
                 </table>
