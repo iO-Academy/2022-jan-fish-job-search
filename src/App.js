@@ -1,12 +1,19 @@
-
 import './App.scss';
+import JobTable from "./JobTable/JobTable";
+import Footer from "./Footer/Footer";
 
-function App() {
-  return (
-    <div className="App">
+const App = () => {
+    const apiFetch = async (url) => {
+        let data = await fetch(url)
+        let jsonData = await data.json()
+        return jsonData
+    }
 
-    </div>
-  );
+    return (
+        <div>
+            <JobTable apiFetch={apiFetch}/>
+            <Footer/>
+        </div>
+    );
 }
-
-export default App;
+export default App
