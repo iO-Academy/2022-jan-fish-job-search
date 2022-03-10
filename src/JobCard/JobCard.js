@@ -38,7 +38,9 @@ const JobCard = (props) => {
             </td>
             <td className={'col-4'}>
                 {props.job.skills.map(skillObject => (
-                    <Skill jobSkill={skillObject.skill} key={skillObject.id}/>
+                    <Skill
+                        jobSkill={skillObject.skill}
+                        key={skillObject.id}/>
                 ))}
             </td>
         </tr>

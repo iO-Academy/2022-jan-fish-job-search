@@ -5,7 +5,7 @@ import JobTable from "../JobTable/JobTable";
 const Main = (props) => {
 
     const [modalDisplay, setModalDisplay] = useState('hidden')
-    const [modalJobId, setModalJobId] = useState('')
+    const [modalJobId, setModalJobId] = useState(1)
 
     const openJobDetailModal = (jobRowId) => {
         setModalDisplay('')

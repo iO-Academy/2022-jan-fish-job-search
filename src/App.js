@@ -2,7 +2,7 @@ import './App.css';
 import './App.scss';
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
-import KeyFacts from "./KeyFacts/KeyFacts";
+
 
 const App = () => {
     const apiFetch = async (url) => {
