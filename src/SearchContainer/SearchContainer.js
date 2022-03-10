@@ -8,6 +8,7 @@ const SearchContainer = (props) => {
 
     const getSkills = async () => {
         let response = await props.ApiFetch('http://localhost:8080/skills')
+        console.log(response)
         // take top 3 most used skills from response
         // set to skills array
         // use map to create skills using this array of 3 items
