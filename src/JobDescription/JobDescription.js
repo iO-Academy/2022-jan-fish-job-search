@@ -1,6 +1,8 @@
+import './JobDescription.scss'
+
 const JobDescription = (props) => {
     return (
-        <div>
+        <div className={'container'}>
             <h3>Job Description:</h3>
             <p>
                 {props.modalData.job_description}

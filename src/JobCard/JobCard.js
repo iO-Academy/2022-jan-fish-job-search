@@ -2,6 +2,7 @@ import CompanyLogo from "../CompanyLogo/CompanyLogo";
 import Type from "../Type/Type";
 import Skill from "../Skill/Skill";
 import {useEffect} from "react";
+import './JobCard.scss'
 
 const JobCard = (props) => {
 
@@ -16,7 +17,7 @@ const JobCard = (props) => {
 
 
     return (
-        <tr onClick={handleClick} className={'d-flex'} data-id={props.job.id}>
+        <tr onClick={handleClick} className={'d-flex job-row'} data-id={props.job.id}>
             <td className={'d-flex flex-row col-4 col-lg-5 p-2'}>
                 <div className={'col-3 d-none d-lg-block'}>
                     <CompanyLogo logo={props.job.logo} companyName={props.job.company}/>
@@ -27,7 +28,10 @@ const JobCard = (props) => {
                 </div>
             </td>
             <td className={'col-2 col-lg-1'}>
-                <Type type={props.job.type}/>
+                <Type
+                    type={props.job.type}
+                    backgroundColor={'bg-primary'}
+                />
             </td>
             <td className={'col-2'}>
                 {props.job.salary === null ? (

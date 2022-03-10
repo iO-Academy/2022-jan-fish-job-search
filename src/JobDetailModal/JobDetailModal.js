@@ -7,23 +7,27 @@ import JobDescription from "../JobDescription/JobDescription";
 const JobDetailModal = (props) => {
 
     return (
-        <div className={'job-detail-modal ' + props.modalDisplay}>
-            {(props.modalData === null) ? (
-                ""
-            ) : (
-                <>
-                <ModalNav
-                    closeHandleClick={props.closeHandleClick}
-                    modalData={props.modalData}/>
-                <ModalHeader modalData={props.modalData} />
-                <KeyFacts modalData={props.modalData} />
-                <JobDescription modalData={props.modalData} />
-                </>
+        <div className={'modal-container ' + props.modalDisplay}>
+            <div className={'job-detail-modal rounded p-2'}>
 
+                {(props.modalData === null) ? (
+                    ""
+                ) : (
+                    <>
+                    <ModalNav
+                        closeHandleClick={props.closeHandleClick}
+                        modalData={props.modalData}/>
+                    <div className={'border border-5 border-white rounded-1' }>
+                    <ModalHeader modalData={props.modalData} />
+                        <div className={'modal-main p-2 container'}>
+                            <KeyFacts modalData={props.modalData} />
+                            <JobDescription modalData={props.modalData} />
+                        </div>
+                    </div>
+                        </>
+                )}
 
-
-            )}
-
+                </div>
         </div>
 
     )
