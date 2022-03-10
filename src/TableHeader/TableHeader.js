@@ -23,16 +23,7 @@ const TableHeader = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                    <tr onClick={handleClick}>
-                        <td>Junior Dev</td>
-                        <td>Google</td>
-                        <td>Full Time</td>
-                    </tr>
-                    <tr>
-                        <td>Junior Dev</td>
-                        <td>Mayden</td>
-                        <td>Full Time</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
