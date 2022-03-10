@@ -35,7 +35,7 @@ const JobTable = (props) => {
                 </thead>
                 <tbody>
                 {(recentJobs === null) ? (
-                        <td>Loading....</td>
+                        <tr><td>Loading....</td></tr>
 
                 ) : (
                     recentJobs.map(job => (
