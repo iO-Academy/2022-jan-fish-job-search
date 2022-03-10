@@ -1,0 +1,18 @@
+.modal-nav {
+  height: 50px;
+  border-bottom: #dfe3e7 solid 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.modal-nav p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.modal-nav img {
+  height: 20px;
+}
+
+/*# sourceMappingURL=ModalNav.css.map */

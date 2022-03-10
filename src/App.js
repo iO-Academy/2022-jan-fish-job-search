@@ -5,23 +5,19 @@ import Footer from "./Footer/Footer";
 import KeyFacts from "./KeyFacts/KeyFacts";
 
 
-const ApiFetch = async (url) => {
+
+const App = () => {
+    const apiFetch = async (url) => {
         let data = await fetch(url)
         let jsonData = await data.json()
         return jsonData
 }
-
-function App() {
-    ApiFetch('http://localhost:8080/jobs/recent')
     return (
-    <div className="App">
-
-      <Main />
-      <KeyFacts apiFetch={ApiFetch}/>
-      <Footer />
-
-    </div>
-  );
+        <div className="App">
+            <Main apiFetch={apiFetch} />
+            <Footer />
+        </div>
+  )
 }
 
 export default App;

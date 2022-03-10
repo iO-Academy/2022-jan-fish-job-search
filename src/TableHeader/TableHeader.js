@@ -1,4 +1,15 @@
-const TableHeader = () => {
+import {useEffect} from "react";
+
+const TableHeader = (props) => {
+
+    const handleClick = () => {
+        props.openJobDetailModal()
+    }
+
+    useEffect( () => {
+        props.fetchModalData(props.jobRowId)
+    }, [props.modalJobId])
+
     return (
         <div>
             <h1>Most recent jobs</h1>
