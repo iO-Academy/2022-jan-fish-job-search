@@ -6,7 +6,8 @@ import {useState} from "react";
 
 const App = () => {
     const [fieldInput, setFieldInput] = useState()
-    const[showOnJobTable, setShowOnJobTable] = useState(null)
+    const[dataOnJobTable, setDataOnJobTable] = useState(null)
+    const[currentlyOnJobTable, setCurrentlyOnJobTable] = useState('loading')
 
     const apiFetch = async (url) => {
         let data = await fetch(url)
@@ -15,18 +16,24 @@ const App = () => {
     }
 
     const fetchRecentJobs = async () => {
+        setCurrentlyOnJobTable('loading')
         let response = await apiFetch("http://localhost:8080/jobs/recent")
-        setShowOnJobTable(response)
+        setDataOnJobTable(response)
+        setCurrentlyOnJobTable('recentJobs')
     }
 
     const fetchAllJobs = async () => {
+        setCurrentlyOnJobTable('loading')
         let response = await apiFetch("http://localhost:8080/jobs")
-        setShowOnJobTable(response)
+        setDataOnJobTable(response)
+        setCurrentlyOnJobTable('allJobs')
     }
 
     const fetchSearchResults = async () => {
+        setCurrentlyOnJobTable('loading')
         let response = await apiFetch("http://localhost:8080/jobs?search=" + fieldInput)
-        setShowOnJobTable(response)
+        setDataOnJobTable(response)
+        setCurrentlyOnJobTable('searchResults')
     }
 
     const handleSearchOnChange = (event) => {
@@ -43,7 +50,8 @@ const App = () => {
             <JobTable
                 fetchRecentJobs={fetchRecentJobs}
                 fetchAllJobs={fetchAllJobs}
-                showOnJobTable={showOnJobTable}
+                dataOnJobTable={dataOnJobTable}
+                currentlyOnJobTable={currentlyOnJobTable}
             />
             <Footer/>
         </div>

@@ -40,7 +40,7 @@ const SearchContainer = (props) => {
                         ))
                     )}
                     <div>
-                        <span onClick={handleSeeMoreSkillsClick} id={'see-more-less-skills-button'} className={'badge m-1 bg-light text-dark'}>{(showingPopularSkills) ? ('See more ' + String.fromCharCode(8594)) : ('See less ' + String.fromCharCode(8592))}</span>
+                        <span onClick={handleSeeMoreSkillsClick} className={'badge m-1 bg-light text-dark cursor-pointer'}>{(showingPopularSkills) ? ('See more ' + String.fromCharCode(8594)) : ('See less ' + String.fromCharCode(8592))}</span>
                     </div>
                 </div>
             <div>

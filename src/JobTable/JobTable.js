@@ -4,13 +4,12 @@ import ViewJobsAndSearchsLink from "../ViewJobsAndSearchsLink/ViewJobsAndSearchs
 
 const JobTable = (props) => {
 
-
     useEffect(() => {
         props.fetchRecentJobs()
     },[])
 
-    const handleClick = () => {
-        props.openJobDetailModal()
+    const printHeaderText = () => {
+        console.log('null')
     }
 
     return (
@@ -18,8 +17,9 @@ const JobTable = (props) => {
             <div className={'d-flex align-items-center justify-content-between'}>
                 <h1>Most recent jobs</h1>
                 <ViewJobsAndSearchsLink
-                    label={'View all jobs' + String.fromCharCode(8594)}
-                    onClick={() => console.log('click')}
+                    fetchRecentJobs={props.fetchRecentJobs}
+                    fetchAllJobs={props.fetchAllJobs}
+                    currentlyOnJobTable={props.currentlyOnJobTable}
                 />
             </div>
             <table className="table table-dark table-striped table-borderless">
@@ -32,10 +32,10 @@ const JobTable = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {(props.showOnJobTable === null) ? (
+                {(props.currentlyOnJobTable === 'loading') ? (
                         <tr><td>Loading....</td></tr>
                 ) : (
-                        props.showOnJobTable.map(job => (
+                        props.dataOnJobTable.map(job => (
                             <JobCard job={job} key={job.id}/>
                 )))}
                 </tbody>
