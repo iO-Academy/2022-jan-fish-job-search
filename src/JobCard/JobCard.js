@@ -5,13 +5,13 @@ import Skill from "../Skill/Skill";
 const JobCard = (props) => {
     return (
         <tr className={'d-flex'} data-id={props.job.id}>
-            <td className={'d-flex flex-row col-4 col-lg-5'}>
+            <td className={'d-flex flex-row col-4 col-lg-5 p-2'}>
                 <div className={'col-3 d-none d-lg-block'}>
                     <CompanyLogo logo={props.job.logo} companyName={props.job.company}/>
                 </div>
                 <div className={'col-9 col-md-12'}>
-                    <h5 className={'card-title'}>{props.job.job_title}</h5>
-                    <h6 className={'card-text'}>{props.job.company}</h6>
+                    <h3 className={'card-title p-1'}>{props.job.job_title}</h3>
+                    <h4 className={'card-text p-1'}>{props.job.company}</h4>
                 </div>
             </td>
             <td className={'col-2 col-lg-1'}>
