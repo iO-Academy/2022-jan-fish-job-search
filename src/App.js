@@ -11,7 +11,13 @@ const App = () => {
         return jsonData
     }
 
-
+    // api request to fetch search results
+    // const[returnSearchResults, setReturnSearchResults] = useState(null)
+    // const fetchSearchResults = async (searchInput) => {
+    //     let response = await apiFetch('http://localhost:8080/jobs?search=' + searchInput)
+    //     setReturnSearchResults(response)
+    //     console.log(returnSearchResults)
+    // }
 
 
     // to trigger upon click of search button
