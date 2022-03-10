@@ -15,7 +15,6 @@ const JobDetailModal = (props) => {
                 <ModalNav
                     closeHandleClick={props.closeHandleClick}
                     modalData={props.modalData}
-
                 />
 
             )}
